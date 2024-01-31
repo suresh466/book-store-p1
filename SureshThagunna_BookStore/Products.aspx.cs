@@ -53,6 +53,34 @@ namespace SureshThagunna_BookStore
             return B;
         }
 
+        protected void btnAdd2_Click(object sender, EventArgs e)
+        {
+            Book B = new Book();
+            B.Id = "2";
+            B.Title = "Sample Book2";
+            B.Price = 99.99m;
+            B.CoverImage = "sample_book.jpg";
+            selectedBook = B;
+
+            if (Page.IsValid)
+            {
+                //get cart from session and selected item from cart
+                CartItemList cart = CartItemList.GetCart();
+                CartItem cartItem = cart[selectedBook.Id];
+
+                //if item isn’t in cart, add it; otherwise, increase its quantity
+                if (cartItem == null)
+                {
+                    cart.AddItem(selectedBook,
+                                 Convert.ToInt32(txtQuantity.Text));
+                }
+                else
+                {
+                    cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
+                }
+                Response.Redirect("Cart.aspx");
+            }
+        }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
