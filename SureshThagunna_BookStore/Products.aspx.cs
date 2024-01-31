@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 // make sure to include this namespace
 using System.Data;
+// model namespace
+using SureshThagunna_BookStore.Model;
 
 namespace SureshThagunna_BookStore
 {
