@@ -26,9 +26,9 @@ namespace SureshThagunna_BookStore.Model
         public string Display()
         {
             string displayString = string.Format("{0} ({1} at {2})",
-                Book.Name,
+                Book.Title,
                 Quantity.ToString(),
-                Book.UnitPrice.ToString("c")
+                Book.Price.ToString("c")
             );
             return displayString;
         }

@@ -51,24 +51,6 @@ namespace SureshThagunna_BookStore
         protected global::System.Web.UI.WebControls.Label lblName;
 
         /// <summary>
-        /// lblShortDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShortDescription;
-
-        /// <summary>
-        /// lblLongDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLongDescription;
-
-        /// <summary>
         /// lblUnitPrice control.
         /// </summary>
         /// <remarks>

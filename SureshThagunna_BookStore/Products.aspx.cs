@@ -20,11 +20,9 @@ namespace SureshThagunna_BookStore
             //bind dropdown on first load; get and show product data on every load   
             if (!IsPostBack) ddlProducts.DataBind();
             selectedBook = this.GetSelectedBook();
-            lblName.Text = selectedBook.Name;
-            lblShortDescription.Text = selectedBook.ShortDescription;
-            lblLongDescription.Text = selectedBook.LongDescription;
-            lblUnitPrice.Text = selectedBook.UnitPrice.ToString("c") + " each";
-            imgProduct.ImageUrl = "Images/Products/" + selectedBook.ImageFile;
+            lblName.Text = selectedBook.Title;
+            lblUnitPrice.Text = selectedBook.Price.ToString("c") + " each";
+            imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
         }
 
         private Book GetSelectedBook()
@@ -38,12 +36,10 @@ namespace SureshThagunna_BookStore
 
             //create a new product object and load with data from row
             Book B = new Book();
-            B.ProductID = row["ProductID"].ToString();
-            B.Name = row["Name"].ToString();
-            B.ShortDescription = row["ShortDescription"].ToString();
-            B.LongDescription = row["LongDescription"].ToString();
-            B.UnitPrice = (decimal)row["UnitPrice"];
-            B.ImageFile = row["ImageFile"].ToString();
+            B.Id = row["ProductID"].ToString();
+            B.Title = row["Name"].ToString();
+            B.Price = (decimal)row["UnitPrice"];
+            B.CoverImage = row["ImageFile"].ToString();
             return B;
         }
 
@@ -53,7 +49,7 @@ namespace SureshThagunna_BookStore
             {
                 //get cart from session and selected item from cart
                 CartItemList cart = CartItemList.GetCart();
-                CartItem cartItem = cart[selectedBook.ProductID];
+                CartItem cartItem = cart[selectedBook.Id];
 
                 //if item isn’t in cart, add it; otherwise, increase its quantity
                 if (cartItem == null)

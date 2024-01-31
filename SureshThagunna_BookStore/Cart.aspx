@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Ch07: Shopping Cart</title>
+    <title>Cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
@@ -43,7 +43,7 @@
                     <div class="form-group"><%-- buttons --%>
                         <div class="col-sm-12">
                             <asp:Button ID="btnContinue" runat="server"
-                                PostBackUrl="~/Order.aspx" Text="Continue Shopping" CssClass="btn" />
+                                PostBackUrl="~/Products.aspx" Text="Continue Shopping" CssClass="btn" />
                             <asp:Button ID="btnCheckOut" runat="server" Text="Check Out"  
                                 onclick="btnCheckOut_Click" CssClass="btn" />
                         </div>

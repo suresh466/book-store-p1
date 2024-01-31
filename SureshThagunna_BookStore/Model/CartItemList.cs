@@ -30,7 +30,7 @@ namespace SureshThagunna_BookStore.Model
             get
             {
                 foreach (CartItem c in cartItems)
-                    if (c.Book.ProductID == id) return c;
+                    if (c.Book.Id == id) return c;
                 return null;
             }
         }

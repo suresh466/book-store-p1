@@ -37,10 +37,6 @@
                     <div class="form-group">
                         <div class="col-sm-12"><h4><asp:Label ID="lblName" runat="server"></asp:Label></h4></div></div>
                     <div class="form-group">
-                        <div class="col-sm-12"><asp:Label ID="lblShortDescription" runat="server"></asp:Label></div></div>
-                    <div class="form-group">
-                        <div class="col-sm-12"><asp:Label ID="lblLongDescription" runat="server"></asp:Label></div></div>
-                    <div class="form-group">
                         <div class="col-sm-12"><asp:Label ID="lblUnitPrice" runat="server"></asp:Label></div></div>
                 </div>
                 <div class="col-sm-4"><%-- product image column --%>
