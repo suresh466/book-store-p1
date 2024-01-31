@@ -13,21 +13,21 @@ namespace SureshThagunna_BookStore
 {
     public partial class Products : System.Web.UI.Page
     {
-        private Product selectedProduct;
+        private Book selectedBook;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             //bind dropdown on first load; get and show product data on every load   
             if (!IsPostBack) ddlProducts.DataBind();
-            selectedProduct = this.GetSelectedProduct();
-            lblName.Text = selectedProduct.Name;
-            lblShortDescription.Text = selectedProduct.ShortDescription;
-            lblLongDescription.Text = selectedProduct.LongDescription;
-            lblUnitPrice.Text = selectedProduct.UnitPrice.ToString("c") + " each";
-            imgProduct.ImageUrl = "Images/Products/" + selectedProduct.ImageFile;
+            selectedBook = this.GetSelectedBook();
+            lblName.Text = selectedBook.Name;
+            lblShortDescription.Text = selectedBook.ShortDescription;
+            lblLongDescription.Text = selectedBook.LongDescription;
+            lblUnitPrice.Text = selectedBook.UnitPrice.ToString("c") + " each";
+            imgProduct.ImageUrl = "Images/Products/" + selectedBook.ImageFile;
         }
 
-        private Product GetSelectedProduct()
+        private Book GetSelectedBook()
         {
             //get row from AccessDataSource based on value in dropdownlist
             DataView productsTable = (DataView)
@@ -37,14 +37,14 @@ namespace SureshThagunna_BookStore
             DataRowView row = productsTable[0];
 
             //create a new product object and load with data from row
-            Product p = new Product();
-            p.ProductID = row["ProductID"].ToString();
-            p.Name = row["Name"].ToString();
-            p.ShortDescription = row["ShortDescription"].ToString();
-            p.LongDescription = row["LongDescription"].ToString();
-            p.UnitPrice = (decimal)row["UnitPrice"];
-            p.ImageFile = row["ImageFile"].ToString();
-            return p;
+            Book B = new Book();
+            B.ProductID = row["ProductID"].ToString();
+            B.Name = row["Name"].ToString();
+            B.ShortDescription = row["ShortDescription"].ToString();
+            B.LongDescription = row["LongDescription"].ToString();
+            B.UnitPrice = (decimal)row["UnitPrice"];
+            B.ImageFile = row["ImageFile"].ToString();
+            return B;
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -53,12 +53,12 @@ namespace SureshThagunna_BookStore
             {
                 //get cart from session and selected item from cart
                 CartItemList cart = CartItemList.GetCart();
-                CartItem cartItem = cart[selectedProduct.ProductID];
+                CartItem cartItem = cart[selectedBook.ProductID];
 
                 //if item isn’t in cart, add it; otherwise, increase its quantity
                 if (cartItem == null)
                 {
-                    cart.AddItem(selectedProduct,
+                    cart.AddItem(selectedBook,
                                  Convert.ToInt32(txtQuantity.Text));
                 }
                 else
