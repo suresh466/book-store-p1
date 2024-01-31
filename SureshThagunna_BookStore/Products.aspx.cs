@@ -25,21 +25,31 @@ namespace SureshThagunna_BookStore
             imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
         }
 
+        //private Book GetSelectedBook()
+        //{
+        //    //get row from AccessDataSource based on value in dropdownlist
+        //    DataView productsTable = (DataView)
+        //        SqlDataSource1.Select(DataSourceSelectArguments.Empty);
+        //    productsTable.RowFilter =
+        //        "ProductID = '" + ddlProducts.SelectedValue + "'";
+        //    DataRowView row = productsTable[0];
+
+        //    //create a new product object and load with data from row
+        //    Book B = new Book();
+        //    B.Id = row["ProductID"].ToString();
+        //    B.Title = row["Name"].ToString();
+        //    B.Price = (decimal)row["UnitPrice"];
+        //    B.CoverImage = row["ImageFile"].ToString();
+        //    return B;
+        //}
         private Book GetSelectedBook()
         {
-            //get row from AccessDataSource based on value in dropdownlist
-            DataView productsTable = (DataView)
-                SqlDataSource1.Select(DataSourceSelectArguments.Empty);
-            productsTable.RowFilter =
-                "ProductID = '" + ddlProducts.SelectedValue + "'";
-            DataRowView row = productsTable[0];
-
-            //create a new product object and load with data from row
+            //create a new product object and load with static data
             Book B = new Book();
-            B.Id = row["ProductID"].ToString();
-            B.Title = row["Name"].ToString();
-            B.Price = (decimal)row["UnitPrice"];
-            B.CoverImage = row["ImageFile"].ToString();
+            B.Id = "1";
+            B.Title = "Sample Book";
+            B.Price = 9.99m;
+            B.CoverImage = "sample_book.jpg";
             return B;
         }
 
