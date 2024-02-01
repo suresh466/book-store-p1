@@ -125,6 +125,10 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Model\sureshthagunna_bookstore.mdf" />
+    <Content Include="Model\sureshthagunna_bookstore_log.ldf">
+      <DependentUpon>sureshthagunna_bookstore.mdf</DependentUpon>
+    </Content>
     <Content Include="Products.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

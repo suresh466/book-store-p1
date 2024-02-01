@@ -25,7 +25,7 @@ namespace SureshThagunna_BookStore.Model
         public string Author { get; set; }
         public int GenreId { get; set; }
         public decimal Price { get; set; }
-        public DateTime PublicationDate { get; set; }
+        public string PublicationDate { get; set; }
         public string CoverImage { get; set; }
     }
 
