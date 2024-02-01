@@ -25,62 +25,24 @@ namespace SureshThagunna_BookStore
             imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
         }
 
-        //private Book GetSelectedBook()
-        //{
-        //    //get row from AccessDataSource based on value in dropdownlist
-        //    DataView productsTable = (DataView)
-        //        SqlDataSource1.Select(DataSourceSelectArguments.Empty);
-        //    productsTable.RowFilter =
-        //        "ProductID = '" + ddlProducts.SelectedValue + "'";
-        //    DataRowView row = productsTable[0];
-
-        //    //create a new product object and load with data from row
-        //    Book B = new Book();
-        //    B.Id = row["ProductID"].ToString();
-        //    B.Title = row["Name"].ToString();
-        //    B.Price = (decimal)row["UnitPrice"];
-        //    B.CoverImage = row["ImageFile"].ToString();
-        //    return B;
-        //}
         private Book GetSelectedBook()
         {
-            //create a new product object and load with static data
+            //get row from AccessDataSource based on value in dropdownlist
+            DataView productsTable = (DataView)
+                SqlDataSource1.Select(DataSourceSelectArguments.Empty);
+            productsTable.RowFilter =
+                "Id = '" + ddlProducts.SelectedValue + "'";
+            DataRowView row = productsTable[0];
+
+            //create a new product object and load with data from row
             Book B = new Book();
-            B.Id = "1";
-            B.Title = "Sample Book";
-            B.Price = 9.99m;
-            B.CoverImage = "sample_book.jpg";
+            B.Id = row["Id"].ToString();
+            B.Title = row["Title"].ToString();
+            B.Price = (decimal)row["Price"];
+            B.CoverImage = row["CoverImage"].ToString();
             return B;
         }
 
-        protected void btnAdd2_Click(object sender, EventArgs e)
-        {
-            Book B = new Book();
-            B.Id = "2";
-            B.Title = "Sample Book2";
-            B.Price = 99.99m;
-            B.CoverImage = "sample_book.jpg";
-            selectedBook = B;
-
-            if (Page.IsValid)
-            {
-                //get cart from session and selected item from cart
-                CartItemList cart = CartItemList.GetCart();
-                CartItem cartItem = cart[selectedBook.Id];
-
-                //if item isn’t in cart, add it; otherwise, increase its quantity
-                if (cartItem == null)
-                {
-                    cart.AddItem(selectedBook,
-                                 Convert.ToInt32(txtQuantity.Text));
-                }
-                else
-                {
-                    cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
-                }
-                Response.Redirect("Cart.aspx");
-            }
-        }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)

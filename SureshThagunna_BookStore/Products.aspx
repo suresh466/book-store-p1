@@ -23,25 +23,16 @@
                         <label class="col-sm-5">Please select a product:</label>
 
                         <div class="col-sm-6">
-                            <asp:DropDownList ID="ddlProducts" runat="server" AutoPostBack="True" CssClass="form-control">
-                                <asp:ListItem Text="Product 1" Value="1"></asp:ListItem>
-                                <asp:ListItem Text="Product 2" Value="2"></asp:ListItem>
-                                <asp:ListItem Text="Product 3" Value="3"></asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-
-                        <%-- <div class="col-sm-6">
                             <asp:DropDownList ID="ddlProducts" runat="server" AutoPostBack="True" 
-                                DataSourceID="SqlDataSource1" DataTextField="Name" 
-                                DataValueField="ProductID" CssClass="form-control">
+                                DataSourceID="SqlDataSource1" DataTextField="Title" 
+                                DataValueField="Id" CssClass="form-control">
                             </asp:DropDownList>
+                            
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                                ConnectionString='<%$ ConnectionStrings:HalloweenConnection %>' 
-                                SelectCommand="SELECT [ProductID], [Name], [ShortDescription], 
-                                [LongDescription], [ImageFile], [UnitPrice] FROM [Products] 
-                                ORDER BY [Name]">
+                                ConnectionString='<%$ ConnectionStrings:sureshthagunna_bookstore %>'
+                                SelectCommand="SELECT [Id], [Title], [CoverImage], [Price] FROM [Book] ORDER BY [Title]">
                             </asp:SqlDataSource>
-                        </div>--%>
+                        </div>
                     </div>   
                     <div class="form-group">
                         <div class="col-sm-12"><h4><asp:Label ID="lblName" runat="server"></asp:Label></h4></div></div>
