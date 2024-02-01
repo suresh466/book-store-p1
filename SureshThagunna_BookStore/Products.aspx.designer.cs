@@ -105,15 +105,6 @@ namespace SureshThagunna_BookStore
         protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// btnAdd2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd2;
-
-        /// <summary>
         /// btnCart control.
         /// </summary>
         /// <remarks>

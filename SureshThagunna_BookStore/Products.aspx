@@ -64,8 +64,6 @@
                         <div class="col-sm-12">
                             <asp:Button ID="btnAdd" runat="server" Text="Add to Cart" 
                                 onclick="btnAdd_Click" CssClass="btn" />
-                            <asp:Button ID="btnAdd2" runat="server" Text="Add to Cart2" 
-                                onclick="btnAdd2_Click" CssClass="btn" />
                             <asp:Button ID="btnCart" runat="server" Text="Go to Cart" 
                                 PostBackUrl="~/Cart.aspx" CausesValidation="False" CssClass="btn" />
                         </div>
