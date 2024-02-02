@@ -13,12 +13,13 @@
                         <div class="col-sm-12">
                             <h4>
                                 <asp:DropDownList ID="ddlGenres" runat="server" AutoPostBack="True"
-                                    DataSourceID="sqlGenresSource" DataTextField="Name" DataValueField="Id">
+                                    DataSourceID="sqlGenresSource" DataTextField="Name" DataValueField="Id"
+                                    OnSelectedIndexChanged="ddlGenres_SelectedIndexChanged">
                                 </asp:DropDownList>
+
                                 <asp:SqlDataSource ID="sqlGenresSource" runat="server"
                                     ConnectionString="<%$ ConnectionStrings:sureshthagunna_bookstore %>"
-                                    SelectCommand="SELECT [Id], [Name] FROM [Genre] ORDER BY [Name]">
-                                </asp:SqlDataSource>
+                                    SelectCommand="SELECT [Id], [Name] FROM [Genre] ORDER BY [Name]"></asp:SqlDataSource>
                             </h4>
                         </div>
                     </div>

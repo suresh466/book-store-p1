@@ -37,6 +37,15 @@ namespace SureshThagunna_BookStore
             imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
         }
 
+        protected void ddlGenres_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Rebind the books dropdown list when the selected genre changes
+            ddlBooks.DataBind();
+            // Trigger the ddlBooks_SelectedIndexChanged event since ddlBooks is changing programmatically
+            ddlBooks_SelectedIndexChanged(ddlBooks, EventArgs.Empty);
+        }
+
+
         private Book GetSelectedBook()
         {
             //get row from AccessDataSource based on value in dropdownlist
