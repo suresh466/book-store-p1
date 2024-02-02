@@ -34,7 +34,9 @@ namespace SureshThagunna_BookStore
             selectedBook = this.GetSelectedBook();
             lblName.Text = selectedBook.Title;
             lblUnitPrice.Text = selectedBook.Price.ToString("c") + " each";
-            imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
+            //imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
+            imgProduct.ImageUrl = "Images/Products/placeholder.jpg";
+
         }
 
         protected void ddlGenres_SelectedIndexChanged(object sender, EventArgs e)

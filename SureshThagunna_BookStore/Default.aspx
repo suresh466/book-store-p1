@@ -2,11 +2,20 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <main>
-        <section class="row" aria-labelledby="aspnetTitle">
-            <h1 id="aspnetTitle">Open Book Store</h1>
-            <p class="lead">Open Book Store is bringing forth the concept of open source into books industry.</p>
-        </section>
-    </main>
+    <div class="container mt-4">
+        <main>
+            <section class="row" aria-labelledby="aspnetTitle">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 id="aspnetTitle" class="card-title">Open Book Store</h1>
+                            <p class="lead card-text">Open Book Store is bringing forth the concept of open source into books industry.</p>
+                            <asp:Button ID="btnStartShopping" runat="server" Text="Start Shopping" PostBackUrl="~/Products.aspx" CssClass="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
 </asp:Content>
