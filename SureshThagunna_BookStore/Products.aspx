@@ -8,21 +8,9 @@
                 <%-- row 1 --%>
                 <div class="col-sm-8">
 
-                    <%-- product drop down and info column --%>
                     <%--
                     <div class="form-group">
                         <label class="col-sm-5">Please select a product:</label>
-
-                        <div class="col-sm-6">
-                            <asp:DropDownList ID="ddlProducts" runat="server" AutoPostBack="True"
-                                DataSourceID="SqlDataSource1" DataTextField="Title"
-                                DataValueField="Id" CssClass="form-control">
-                            </asp:DropDownList>
-
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server"
-                                ConnectionString='<%$ ConnectionStrings:sureshthagunna_bookstore %>'
-                                SelectCommand="SELECT [Id], [Title], [CoverImage], [Price] FROM [Book] ORDER BY [Title]">
-                            </asp:SqlDataSource>
 
                             <asp:DropDownList ID="ddlProducts" runat="server" AutoPostBack="True"
                                 DataSourceID="SqlDataSource1" DataTextField="Title"
@@ -39,6 +27,7 @@
                     </div>
                     --%>
 
+                    <%-- Book drop down column --%>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h4>
@@ -46,16 +35,20 @@
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="sqlGenresSource" runat="server"
                                     ConnectionString="<%$ ConnectionStrings:sureshthagunna_bookstore %>"
-                                    SelectCommand="SELECT [Id], [Name] FROM [Genre] ORDER BY [Name]"></asp:SqlDataSource>
+                                    SelectCommand="SELECT [Id], [Name] FROM [Genre] ORDER BY [Name]">
+                                </asp:SqlDataSource>
                             </h4>
                         </div>
                     </div>
 
+                    <%-- Book drop down column --%>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h5></h5>
                             <asp:DropDownList ID="ddlBooks" runat="server" DataSourceID="SqlBooksSource" DataTextField="Title" DataValueField="Id"></asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlBooksSource" runat="server" ConnectionString="<%$ ConnectionStrings:sureshthagunna_bookstore %>" SelectCommand="SELECT [Id], [GenreId], [Title], [Price], [CoverImage] FROM [Book] WHERE ([GenreId] = @GenreId) ORDER BY [Title]">
+                            <asp:SqlDataSource ID="SqlBooksSource" runat="server"
+                                ConnectionString="<%$ ConnectionStrings:sureshthagunna_bookstore %>"
+                                SelectCommand="SELECT [Id], [GenreId], [Title], [Price], [CoverImage] FROM [Book] WHERE ([GenreId] = @GenreId) ORDER BY [Title]">
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="ddlGenres" Name="GenreId" PropertyName="SelectedValue" Type="Int32" />
                                 </SelectParameters>
