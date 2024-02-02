@@ -15,22 +15,40 @@ namespace SureshThagunna_BookStore
     {
 
         /// <summary>
-        /// ddlProducts control.
+        /// ddlGenres control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProducts;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGenres;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// sqlGenresSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlGenresSource;
+
+        /// <summary>
+        /// ddlBooks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBooks;
+
+        /// <summary>
+        /// SqlBooksSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlBooksSource;
 
         /// <summary>
         /// lblName control.

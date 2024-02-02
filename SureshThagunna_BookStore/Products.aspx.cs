@@ -19,7 +19,11 @@ namespace SureshThagunna_BookStore
         protected void Page_Load(object sender, EventArgs e)
         {
             //bind dropdown on first load; get and show product data on every load   
-            if (!IsPostBack) ddlProducts.DataBind();
+            if (!IsPostBack)
+            {
+                ddlGenres.DataBind();
+                //ddlProducts.DataBind();
+            }
             selectedBook = this.GetSelectedBook();
             lblName.Text = selectedBook.Title;
             lblUnitPrice.Text = selectedBook.Price.ToString("c") + " each";
@@ -29,22 +33,35 @@ namespace SureshThagunna_BookStore
         private Book GetSelectedBook()
         {
             //get row from AccessDataSource based on value in dropdownlist
-            DataView productsTable = (DataView)
-                SqlDataSource1.Select(DataSourceSelectArguments.Empty);
-            productsTable.RowFilter =
-                "Id = " + ddlProducts.SelectedValue;
-            DataRowView row = productsTable[0];
-
-            //create a new product object and load with data from row
             Book B = new Book
             {
-                Id = (int)row["Id"],
-                Title = (string)row["Title"],
-                Price = (decimal)row["Price"],
-                CoverImage = row["CoverImage"].ToString() // cover image link can be null so.
+                Id = 1,
+                Title = "title1",
+                Price = 9.99m,
+                CoverImage = "",
             };
             return B;
         }
+
+        //private Book GetSelectedBook()
+        //{
+        //    //get row from AccessDataSource based on value in dropdownlist
+        //    DataView productsTable = (DataView)
+        //        SqlDataSource1.Select(DataSourceSelectArguments.Empty);
+        //    productsTable.RowFilter =
+        //        "Id = " + ddlProducts.SelectedValue;
+        //    DataRowView row = productsTable[0];
+
+        //    //create a new product object and load with data from row
+        //    Book B = new Book
+        //    {
+        //        Id = (int)row["Id"],
+        //        Title = (string)row["Title"],
+        //        Price = (decimal)row["Price"],
+        //        CoverImage = row["CoverImage"].ToString() // cover image link can be null so.
+        //    };
+        //    return B;
+        //}
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {

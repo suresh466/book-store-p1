@@ -7,7 +7,9 @@
             <div class="row">
                 <%-- row 1 --%>
                 <div class="col-sm-8">
+
                     <%-- product drop down and info column --%>
+                    <%--
                     <div class="form-group">
                         <label class="col-sm-5">Please select a product:</label>
 
@@ -19,29 +21,67 @@
 
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server"
                                 ConnectionString='<%$ ConnectionStrings:sureshthagunna_bookstore %>'
-                                SelectCommand="SELECT [Id], [Title], [CoverImage], [Price] FROM [Book] ORDER BY [Title]"></asp:SqlDataSource>
+                                SelectCommand="SELECT [Id], [Title], [CoverImage], [Price] FROM [Book] ORDER BY [Title]">
+                            </asp:SqlDataSource>
+
+                            <asp:DropDownList ID="ddlProducts" runat="server" AutoPostBack="True"
+                                DataSourceID="SqlDataSource1" DataTextField="Title"
+                                DataValueField="Id" CssClass="form-control">
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+                                ConnectionString='<%$ ConnectionStrings:sureshthagunna_bookstore %>'
+                                SelectCommand="SELECT [Id], [Title], [CoverImage], [Price] FROM [Book] WHERE [GenreId] = @GenreId ORDER BY [Title]">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="ddlGenres" PropertyName="SelectedValue" Name="GenreId" Type="Int32" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </div>
                     </div>
+                    --%>
+
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h4>
-                                <asp:Label ID="lblName" runat="server"></asp:Label></h4>
+                                <asp:DropDownList ID="ddlGenres" runat="server" AutoPostBack="True" DataSourceID="sqlGenresSource" DataTextField="Name" DataValueField="Id">
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="sqlGenresSource" runat="server"
+                                    ConnectionString="<%$ ConnectionStrings:sureshthagunna_bookstore %>"
+                                    SelectCommand="SELECT [Id], [Name] FROM [Genre] ORDER BY [Name]"></asp:SqlDataSource>
+                            </h4>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <asp:Label ID="lblUnitPrice" runat="server"></asp:Label></div>
+                            <h5></h5>
+                            <asp:DropDownList ID="ddlBooks" runat="server" DataSourceID="SqlBooksSource" DataTextField="Title" DataValueField="Id"></asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlBooksSource" runat="server" ConnectionString="<%$ ConnectionStrings:sureshthagunna_bookstore %>" SelectCommand="SELECT [Id], [GenreId], [Title], [Price], [CoverImage] FROM [Book] WHERE ([GenreId] = @GenreId) ORDER BY [Title]">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="ddlGenres" Name="GenreId" PropertyName="SelectedValue" Type="Int32" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4>
+                            <asp:Label ID="lblName" runat="server"></asp:Label>
+                        </h4>
+                        <div class="col-sm-12">
+                            <asp:Label ID="lblUnitPrice" runat="server"></asp:Label>
+                        </div>
                     </div>
                 </div>
+
+                <%-- product image column --%>
                 <div class="col-sm-4">
-                    <%-- product image column --%>
                     <asp:Image ID="imgProduct" runat="server" />
                 </div>
             </div>
             <%-- end of row 1 --%>
 
+            <%-- row 2 --%>
             <div class="row">
-                <%-- row 2 --%>
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="col-sm-1">Quantity:</label>
