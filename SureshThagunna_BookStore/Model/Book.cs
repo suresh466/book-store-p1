@@ -6,7 +6,7 @@ using System.Web;
 namespace SureshThagunna_BookStore.Model
 {
     // Books table schema:
-    // Id: String, primary key
+    // Id: int, primary key
     // Title: string
     // Author: string
     // GenreId: int, foreign key referencing Genre table
@@ -20,7 +20,7 @@ namespace SureshThagunna_BookStore.Model
 
     public class Book
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
         public int GenreId { get; set; }

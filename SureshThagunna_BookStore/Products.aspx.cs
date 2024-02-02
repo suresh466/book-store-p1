@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 // model namespace
 using SureshThagunna_BookStore.Model;
+using System.Data.SqlClient;
 
 namespace SureshThagunna_BookStore
 {
@@ -31,15 +32,17 @@ namespace SureshThagunna_BookStore
             DataView productsTable = (DataView)
                 SqlDataSource1.Select(DataSourceSelectArguments.Empty);
             productsTable.RowFilter =
-                "Id = '" + ddlProducts.SelectedValue + "'";
+                "Id = " + ddlProducts.SelectedValue;
             DataRowView row = productsTable[0];
 
             //create a new product object and load with data from row
-            Book B = new Book();
-            B.Id = row["Id"].ToString();
-            B.Title = row["Title"].ToString();
-            B.Price = (decimal)row["Price"];
-            B.CoverImage = row["CoverImage"].ToString();
+            Book B = new Book
+            {
+                Id = (int)row["Id"],
+                Title = (string)row["Title"],
+                Price = (decimal)row["Price"],
+                CoverImage = row["CoverImage"].ToString() // cover image link can be null so.
+            };
             return B;
         }
 
@@ -49,7 +52,7 @@ namespace SureshThagunna_BookStore
             {
                 //get cart from session and selected item from cart
                 CartItemList cart = CartItemList.GetCart();
-                CartItem cartItem = cart[selectedBook.Id];
+                CartItem cartItem = cart.GetItemById(selectedBook.Id);
 
                 //if item isn’t in cart, add it; otherwise, increase its quantity
                 if (cartItem == null)

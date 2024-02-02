@@ -19,21 +19,20 @@ namespace SureshThagunna_BookStore.Model
             get { return cartItems.Count; }
         }
 
+        // for cart.aspx.cs
         public CartItem this[int index]
         {
             get { return cartItems[index]; }
             set { cartItems[index] = value; }
         }
 
-        public CartItem this[string id]
-        {
-            get
+        // for products.aspx
+        public CartItem GetItemById(int id)
             {
                 foreach (CartItem c in cartItems)
                     if (c.Book.Id == id) return c;
                 return null;
             }
-        }
 
         public static CartItemList GetCart()
         {
