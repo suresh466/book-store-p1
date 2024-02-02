@@ -22,9 +22,16 @@ namespace SureshThagunna_BookStore
             if (!IsPostBack)
             {
                 ddlGenres.DataBind();
-                //ddlProducts.DataBind();
+                ddlBooks.DataBind();
+                // trigger the ddlBooks_SelectedIndexChanged event since ddlbooks is changing programmatically
+                ddlBooks_SelectedIndexChanged(ddlBooks, EventArgs.Empty);
             }
-            selectedBook = this.GetSelectedBook();
+        }
+
+        protected void ddlBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // get the selected book and display its details
+            Book selectedBook = this.GetSelectedBook();
             lblName.Text = selectedBook.Title;
             lblUnitPrice.Text = selectedBook.Price.ToString("c") + " each";
             imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
@@ -33,35 +40,23 @@ namespace SureshThagunna_BookStore
         private Book GetSelectedBook()
         {
             //get row from AccessDataSource based on value in dropdownlist
+            DataView productsTable = (DataView)
+                SqlBooksSource.Select(DataSourceSelectArguments.Empty);
+
+            productsTable.RowFilter =
+                "Id = " + ddlBooks.SelectedValue;
+            DataRowView row = productsTable[0];
+
+            //create a new product object and load with data from row
             Book B = new Book
             {
-                Id = 1,
-                Title = "title1",
-                Price = 9.99m,
-                CoverImage = "",
+                Id = (int)row["Id"],
+                Title = (string)row["Title"],
+                Price = (decimal)row["Price"],
+                CoverImage = row["CoverImage"].ToString() // cover image link can be null so.
             };
             return B;
         }
-
-        //private Book GetSelectedBook()
-        //{
-        //    //get row from AccessDataSource based on value in dropdownlist
-        //    DataView productsTable = (DataView)
-        //        SqlDataSource1.Select(DataSourceSelectArguments.Empty);
-        //    productsTable.RowFilter =
-        //        "Id = " + ddlProducts.SelectedValue;
-        //    DataRowView row = productsTable[0];
-
-        //    //create a new product object and load with data from row
-        //    Book B = new Book
-        //    {
-        //        Id = (int)row["Id"],
-        //        Title = (string)row["Title"],
-        //        Price = (decimal)row["Price"],
-        //        CoverImage = row["CoverImage"].ToString() // cover image link can be null so.
-        //    };
-        //    return B;
-        //}
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
