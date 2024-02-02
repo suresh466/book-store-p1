@@ -31,7 +31,7 @@ namespace SureshThagunna_BookStore
         protected void ddlBooks_SelectedIndexChanged(object sender, EventArgs e)
         {
             // get the selected book and display its details
-            Book selectedBook = this.GetSelectedBook();
+            selectedBook = this.GetSelectedBook();
             lblName.Text = selectedBook.Title;
             lblUnitPrice.Text = selectedBook.Price.ToString("c") + " each";
             imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
@@ -62,6 +62,8 @@ namespace SureshThagunna_BookStore
         {
             if (Page.IsValid)
             {
+                // set selected book
+                selectedBook = this.GetSelectedBook();
                 //get cart from session and selected item from cart
                 CartItemList cart = CartItemList.GetCart();
                 CartItem cartItem = cart.GetItemById(selectedBook.Id);
