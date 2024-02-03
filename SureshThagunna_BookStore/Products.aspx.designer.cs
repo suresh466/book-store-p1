@@ -69,15 +69,6 @@ namespace SureshThagunna_BookStore
         protected global::System.Web.UI.WebControls.Label lblUnitPrice;
 
         /// <summary>
-        /// imgProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgProduct;
-
-        /// <summary>
         /// txtQuantity control.
         /// </summary>
         /// <remarks>
@@ -121,5 +112,14 @@ namespace SureshThagunna_BookStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCart;
+
+        /// <summary>
+        /// imgProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgProduct;
     }
 }

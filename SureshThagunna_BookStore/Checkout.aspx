@@ -149,12 +149,41 @@
         </div>
 
         <%-- buttons --%>
+
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-sm-1">Quantity:</label>
+                    <div class="col-sm-3">
+                        <asp:TextBox ID="txtQuantity" runat="server"
+                            CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="col-sm-8">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger"
+                            runat="server" ControlToValidate="txtQuantity" Display="Dynamic"
+                            ErrorMessage="Quantity is a required field."></asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" CssClass="text-danger"
+                            ControlToValidate="txtQuantity" Display="Dynamic"
+                            ErrorMessage="Quantity must range from 1 to 500."
+                            MaximumValue="500" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <asp:Button ID="btnCheckOut" runat="server" Text="Place Order" CssClass="btn"
+                                OnClick="btnCheckOut_Click" />
+                            <asp:LinkButton ID="lbtnContinueShopping" runat="server" CssClass="btn"
+                                PostBackUrl="~/Cart.aspx" CausesValidation="False">Go back to Cart</asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
-                <asp:Button ID="btnCheckOut" runat="server" Text="Place Order" CssClass="btn"
-                    OnClick="btnCheckOut_Click" />
-                <asp:LinkButton ID="lbtnContinueShopping" runat="server" CssClass="btn"
-                    PostBackUrl="~/Cart.aspx" CausesValidation="False">Go back to Cart</asp:LinkButton>
             </div>
         </div>
     </main>
