@@ -5,14 +5,16 @@
     <div class="container mt-4">
         <main>
             <div class="row">
-                <div class="col-sm-12">
-                    <h1>Your shopping cart</h1>
+                <div class="col-sm-12 text-center">
+                    <h2>Your Cart</h2>
                 </div>
+            </div>
+            <div class="row mt-3">
                 <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Cart Items</h5>
-                            <asp:ListBox ID="lstCart" runat="server" CssClass="form-control" style="width: 80%;"></asp:ListBox>
+                            <asp:ListBox ID="lstCart" runat="server" CssClass="form-control" Style="width: 80%;"></asp:ListBox>
                         </div>
                     </div>
                 </div>
@@ -28,7 +30,7 @@
             </div>
 
             <div class="row mt-4">
-                                    <asp:Label ID="lblMessage" runat="server" EnableViewState="False" CssClass="text-info col-sm-12 mb-2"></asp:Label>
+                <asp:Label ID="lblMessage" runat="server" EnableViewState="False" CssClass="text-info col-sm-12 mb-2"></asp:Label>
                 <div class="col-sm-12">
                     <asp:Button ID="btnContinue" runat="server" PostBackUrl="~/Products.aspx" Text="Continue Shopping" CssClass="btn btn-primary mr-2" />
                     <asp:Button ID="btnCheckOut" runat="server" Text="Check Out" OnClick="btnCheckOut_Click" CssClass="btn btn-success" />

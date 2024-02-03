@@ -3,8 +3,12 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
         <main>
-            <%--            ddls and img row start--%>
             <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>Products</h2>
+                </div>
+            </div>
+            <div class="row mt-3">
                 <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
