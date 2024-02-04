@@ -21,6 +21,7 @@ namespace SureshThagunna_BookStore
             //bind dropdown on first load; get and show product data on every load   
             if (!IsPostBack)
             {
+                // bind dropdown lists
                 ddlGenres.DataBind();
                 ddlBooks.DataBind();
                 // trigger the ddlBooks_SelectedIndexChanged event since ddlbooks is changing programmatically

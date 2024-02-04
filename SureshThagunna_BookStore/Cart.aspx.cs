@@ -12,13 +12,14 @@ namespace SureshThagunna_BookStore
     {
         private CartItemList cart;
 
+        // on page load, get the cart and display it on the page.
         protected void Page_Load(object sender, EventArgs e)
         {
             cart = CartItemList.GetCart();
             if (!IsPostBack)
                 this.DisplayCart();
         }
-
+        // this actually paints the page with the cart items
         private void DisplayCart()
         {
             lstCart.Items.Clear();
@@ -30,6 +31,7 @@ namespace SureshThagunna_BookStore
             }
         }
 
+        // event handler for the remove button
         protected void btnRemove_Click(object sender, EventArgs e)
         {
             if (cart.Count > 0)
@@ -46,6 +48,7 @@ namespace SureshThagunna_BookStore
             }
         }
 
+        // event handler for the empty button
         protected void btnEmpty_Click(object sender, EventArgs e)
         {
             if (cart.Count > 0)
@@ -55,6 +58,7 @@ namespace SureshThagunna_BookStore
             }
         }
 
+        // button to go back to the products page
         protected void btnCheckOut_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/CheckOut.aspx");

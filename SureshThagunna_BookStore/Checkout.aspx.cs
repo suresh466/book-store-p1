@@ -9,6 +9,7 @@ namespace SureshThagunna_BookStore
 {
     public partial class CheckOut : System.Web.UI.Page
     {
+        // clear the cart and checkout form, signifying order completion
         protected void btnCheckOut_Click(object sender, EventArgs e)
         {
             if (IsValid)
@@ -17,12 +18,6 @@ namespace SureshThagunna_BookStore
                 //clear the checkout form by just redirecting to the same page
                 Response.Redirect("~/CheckOut.aspx");
             }
-        }
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            // remove the cart and redirect to the order page
-            Session.Remove("Cart");
-            Response.Redirect("~/Order.aspx");
         }
     }
 }
