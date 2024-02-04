@@ -34,6 +34,8 @@ namespace SureshThagunna_BookStore
             // get the selected book and display its details
             selectedBook = this.GetSelectedBook();
             lblName.Text = selectedBook.Title;
+            lblAuthor.Text = selectedBook.Author;
+            lblPublicationDate.Text = selectedBook.PublicationDate;
             lblUnitPrice.Text = selectedBook.Price.ToString("c") + " each";
             //imgProduct.ImageUrl = "Images/Products/" + selectedBook.CoverImage;
             imgProduct.ImageUrl = "Images/Products/placeholder.jpg";
@@ -64,6 +66,8 @@ namespace SureshThagunna_BookStore
             {
                 Id = (int)row["Id"],
                 Title = (string)row["Title"],
+                Author = (string)row["Author"],
+                PublicationDate = (string)row["publicationDate"],
                 Price = (decimal)row["Price"],
                 CoverImage = row["CoverImage"].ToString() // cover image link can be null so.
             };

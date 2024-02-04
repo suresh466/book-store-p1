@@ -30,7 +30,7 @@
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="SqlBooksSource" runat="server"
                                 ConnectionString="<%$ ConnectionStrings:sureshthagunna_bookstore %>"
-                                SelectCommand="SELECT [Id], [GenreId], [Title], [Price], [CoverImage] FROM [Book] WHERE ([GenreId] = @GenreId) ORDER BY [Title]">
+                                SelectCommand="SELECT [Id], [GenreId], [Title], [Author], [PublicationDate], [Price], [CoverImage] FROM [Book] WHERE ([GenreId] = @GenreId) ORDER BY [Title]">
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="ddlGenres" Name="GenreId" PropertyName="SelectedValue" Type="Int32" />
                                 </SelectParameters>
@@ -43,6 +43,15 @@
                                 <asp:Label ID="lblName" runat="server"></asp:Label>
                             </h5>
                             <p>
+                                Author:
+                                <asp:Label ID="lblAuthor" runat="server"></asp:Label>
+                            </p>
+                            <p>
+                                Pub Date:
+                                <asp:Label ID="lblPublicationDate" runat="server"></asp:Label>
+                            </p>
+                            <p>
+                                Price:
                                 <asp:Label ID="lblUnitPrice" runat="server"></asp:Label>
                             </p>
                         </div>
